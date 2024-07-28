@@ -3,7 +3,8 @@ import PlacesCard from '@/components/PlacesCard'
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useId, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { motion } from "framer-motion"
 
 type Feature = {
   properties: {
@@ -65,30 +66,46 @@ function Page() {
 
   return (
     <div className='w-full h-full flex flex-col items-center justify-center'>
-      <div className='w-full h-20 flex flex-row items-center justify-center gap-8 bg-blue-950'>
-        <div>
-          <Button className='bg-white text-black font-semibold hover:bg-white text-2xl font-sans' onClick={flightSearch}>
+      <div className="absolute top-0 z-[-2] h-max w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" >
+      <div className='w-full h-24 flex flex-row items-center justify-center gap-2'>
+        <motion.div 
+        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: -100 }}
+        transition={{ duration: 1.5 }}
+        className='w-fit h-fit'>
+          <Button className=' text-neutral-950 border-neutral-950  border-2 font-bold hover:bg-slate-600 text-3xl p-2  pb-4 pt-3  font-sans bg-white shadow-2xl shadow-slate-600' onClick={flightSearch}>
             FlightSearch
           </Button>
-        </div>
-        <div>
-          <Button className='bg-white text-black font-semibold hover:bg-white text-2xl font-sans' onClick={hotelSearch}>
+        </motion.div>
+        <motion.div 
+        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: 100 }}
+        transition={{ duration: 1.5 }}
+        className='w-fit h-fit'>
+          <Button className=' text-neutral-950 border-neutral-950  border-2 font-bold hover:bg-slate-600 text-3xl p-2  pb-4 pt-3 font-sans bg-white shadow-2xl shadow-slate-600' onClick={hotelSearch}>
             HotelSearch
           </Button>
-        </div>
+        </motion.div>
       </div>
       <div className='flex flex-wrap w-full items-center justify-center gap-4 mt-10'>
         {data.map((feature, index) => (
           feature.properties.address_line1?.trim() ? (
-            <PlacesCard
-              key={index}
-              address_line1={feature.properties.address_line1}
-              address_line2={feature.properties.address_line2}
-              cityName={cityName}
-              imageType={true}
-            />
+            <motion.div
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -100 }}
+              transition={{ duration: 1.5 }}
+                className='w-fit h-fit' key={index}>
+                <PlacesCard
+                  key={index}
+                  address_line1={feature.properties.address_line1}
+                  address_line2={feature.properties.address_line2}
+                  cityName={cityName}
+                  imageType={true}
+                />
+              </motion.div>
           ) : null
         ))}
+      </div>
       </div>
     </div>
   )

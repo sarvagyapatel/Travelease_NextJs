@@ -10,6 +10,8 @@ import { Skeleton } from "./ui/skeleton";
 import Image from "next/image";
 import cover from '@/components/cover.png'
 import hotelCover from '@/components/hotelCover.png'
+import { motion } from "framer-motion"
+
 
 type PlacesCardProps = {
     address_line1: string,
@@ -43,11 +45,12 @@ function PlacesCard({ address_line1, address_line2, cityName, imageType }: Place
             };
 
     return (
-        <Card className="max-w-md mx-auto shadow-2xl rounded-2xl">
-            <CardHeader className="text-center bg-blue-900 text-white p-3 rounded-t-2xl">
+        <>
+        <Card className="max-w-md mx-auto  rounded-2xl border-none bg-neutral-950 bg-[radial-gradient]">
+            <CardHeader className="text-center text-white ">
                 <CardTitle className="text-xl font-bold">{address_line1}</CardTitle>
+            <CardDescription className="text-center text-gray-200 mt-3 font-semibold text-sm">{address_line2}</CardDescription>
             </CardHeader>
-            <CardDescription className="text-center text-gray-500 mt-3 font-semibold text-sm">{address_line2}</CardDescription>
             {loading ? (
                 // <p className="text-center p-4">Loading...</p>
                 <div className="flex flex-col space-y-3 p-4">
@@ -57,7 +60,7 @@ function PlacesCard({ address_line1, address_line2, cityName, imageType }: Place
                         height={200}
                         alt="Picture of the author"
                         onClick={getImages}
-                        className="rounded-2xl hover:cursor-pointer"
+                        className="rounded-2xl shadow-slate-600 hover:cursor-pointer shadow-2xl"
                     />
                 </div>
             ) : error ? (
@@ -82,6 +85,7 @@ function PlacesCard({ address_line1, address_line2, cityName, imageType }: Place
                 </Carousel>
             )}
         </Card>
+        </>
     );
 }
 
