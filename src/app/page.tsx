@@ -41,7 +41,8 @@ export default function Home() {
       originCode: string,
       destinationCode: string,
       startDate: string,
-      endDate: string
+      endDate: string,
+      access_token: string
     },
     placesSearch: {
       cityName: string,
@@ -88,7 +89,8 @@ export default function Home() {
           originCode: originCity.data.data[0].iataCode,
           destinationCode: destinationCity.data.data[0].iataCode,
           startDate: startDate,
-          endDate: endDate
+          endDate: endDate,
+          access_token: accessToken.data.access_token
         },
         placesSearch: {
           cityName: data.destination,
@@ -104,21 +106,6 @@ export default function Home() {
       };
       setIsLoading(false);
       handleClick();
-
-      // const originCode = (originCity.data.data[0].iataCode);
-      // const destinationCode= (destinationCity.data.data[0].iataCode);
-      // console.log(originCode, "  ", destinationCode, "  ", startDate)
-      // const amadeusFlightUrl = `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originCode}&destinationLocationCode=${destinationCode}&departureDate=${startDate}&returnDate=${endDate}&adults=1&max=50`;
-      
-      // const flightData =await axios(amadeusFlightUrl,
-      //   {
-      //     headers: {
-      //       Authorization: `Bearer ${accessToken.data.access_token}`,
-      //     }
-      //   }
-      // )
-
-      // console.log(flightData)
 
     } catch (error) {
       setIsLoading(false)
