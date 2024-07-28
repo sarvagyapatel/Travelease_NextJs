@@ -25,7 +25,7 @@ const CategoryButtonGroup = forwardRef<HTMLDivElement, CategoryButtonGroupProps>
             key={category[0]}
             type="button"  // Ensure the button does not submit the form
             onClick={() => handleCategoryChange(category[1])}
-            className={`bg-blue-950 font-bold rounded-2xl ${field.value.includes(category[1]) ? 'selected bg-blue-700' : '' }`}
+            className={`bg-indigo-800 font-bold rounded-2xl ${field.value.includes(category[1]) ? 'selected bg-blue-950' : '' }`}
           >
             {category[0]}
           </Button>

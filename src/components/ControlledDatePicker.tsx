@@ -28,7 +28,7 @@ const ControlledDatePicker = forwardRef<HTMLDivElement, ControlledDatePickerProp
       <div ref={ref} className={cn('grid gap-2', className)}>
         <Popover>
           <PopoverTrigger asChild>
-          <Button className='bg-blue-900 rounded-full shadow-2xl'>
+          <Button className='bg-indigo-800 rounded-full shadow-2xl'>
             <CalendarIcon />
           </Button>
           </PopoverTrigger>

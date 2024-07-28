@@ -129,8 +129,9 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-around p-4 bg-blue-900">
-      <div className="flex flex-col items-center justify-center gap-1">
+    <main className="flex min-h-screen flex-col items-center justify-around p-4 ">
+     <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+      <div className="flex flex-col items-center justify-center gap-1 -mt-32">
         <div>
           <Image
             src={logo}
@@ -180,7 +181,7 @@ export default function Home() {
                     )}
                   />
                   <div className="flex flex-row items-center justify-center rounded-full ">
-                    <Button className="rounded-full bg-blue-900 shadow-2xl">
+                    <Button className="rounded-full bg-indigo-800 shadow-2xl">
                       {isLoading?(
                         <Loader2 className="h-7 w-7 animate-spin"/>
                       ):(
