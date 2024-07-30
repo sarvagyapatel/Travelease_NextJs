@@ -46,14 +46,14 @@ function PlacesCard({ address_line1, address_line2, cityName, imageType }: Place
 
     return (
         <>
-        <Card className="max-w-md mx-auto  rounded-2xl border-none bg-neutral-950 bg-[radial-gradient]">
+        <Card className="max-w-md mx-auto  rounded-2xl border-none bg-neutral-950 bg-[radial-gradient] p-4">
             <CardHeader className="text-center text-white ">
                 <CardTitle className="text-xl font-bold">{address_line1}</CardTitle>
             <CardDescription className="text-center text-gray-200 mt-3 font-semibold text-sm">{address_line2}</CardDescription>
             </CardHeader>
             {loading ? (
                 // <p className="text-center p-4">Loading...</p>
-                <div className="flex flex-col space-y-3 p-4">
+                <div className="flex flex-col space-y-3 ">
                     <Image
                         src={imageType?(cover):(hotelCover)}
                         width={400}
