@@ -21,7 +21,7 @@ interface MyCardProps {
     flight: FlightDetails
 }
 
-const FlightCard: React.FC<MyCardProps> = ({ flight }) => {
+const FlightCard: React.FC<MyCardProps> = ({flight}) => {
     return (
         <div className="w-fit mx-auto bg-white shadow-md rounded-lg overflow-hidden my-4 border border-gray-200">
             <div className="flex items-center p-4 bg-blue-50">
