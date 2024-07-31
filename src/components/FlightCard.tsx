@@ -2,7 +2,26 @@
 
 import React from 'react';
 
-const FlightCard = ({ flight }) => {
+type FlightDetails = {
+    airline: string,
+    departure: {
+      time: string,
+      city: string,
+    },
+    arrival: {
+      time: string,
+      city: string,
+    },
+    duration: string,
+    stops: string,
+    price: string,
+  };
+  
+interface MyCardProps {
+    flight: FlightDetails
+}
+
+const FlightCard: React.FC<MyCardProps> = ({ flight }) => {
     return (
         <div className="w-fit mx-auto bg-white shadow-md rounded-lg overflow-hidden my-4 border border-gray-200">
             <div className="flex items-center p-4 bg-blue-50">
