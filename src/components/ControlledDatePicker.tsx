@@ -32,7 +32,7 @@ const ControlledDatePicker = forwardRef<HTMLDivElement, ControlledDatePickerProp
             <CalendarIcon />
           </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="start">
+          <PopoverContent className="w-full p-0 -mt-36" align="center">
             <DayPicker
               mode="range"
               selected={date}
